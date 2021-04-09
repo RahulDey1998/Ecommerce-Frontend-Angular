@@ -3,12 +3,18 @@
         <div class="container-fulid">
             <div class="row">
                 <div *ngFor="let product of products" class="col-md-3">
+                    
                     <div class="product-box">
                         <img src="{{ product.imageUrl }}" alt="img" class="img-responsive">
                         <h1>{{ product.name }}</h1>
                         <div class="price">{{ product.unitPrice | currency:'USD' }}</div>
                         <a href="#" class="primary-btn">Add to cart</a>
                     </div>
+
+                </div>
+                <!--If the product is not available then display a message-->
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No product found
                 </div>
             </div>
         </div>
